@@ -216,7 +216,6 @@ syntax on " Enable syntax
 
 set background=dark " Enable for dark terminals
 
-let g:gruvbox_italic = 1 " Enable italic font (it must go before a colorscheme)
 colorscheme gruvbox " Set color scheme
 
 set t_Co=256 " Use 256 colors

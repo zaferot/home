@@ -21,7 +21,7 @@ set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Set default $TERM when in tmux
 if test -z "$TMUX"
-  set -x TERM 'xterm-256color-it'
+  set -x TERM 'xterm-256color'
 end
 
 # Start detached TNUX session
