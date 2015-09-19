@@ -16,6 +16,9 @@ eval (dircolors -c ~/.dircolors | sed 's/>&\/dev\/null$//')
 # Setting ag as the default source for fzf
 set -x FZF_DEFAULT_COMMAND 'ag -l -g ""'
 
+# SSH agent
+set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # Set default $TERM when in tmux
 if test -n "$TMUX"
   set -x TERM 'screen-256color-it'
