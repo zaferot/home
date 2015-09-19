@@ -542,7 +542,7 @@ let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
 hi CtrlSpaceSelected ctermfg=NONE   ctermbg=239     cterm=NONE
 hi CtrlSpaceNormal   ctermfg=245    ctermbg=NONE    cterm=NONE
 hi CtrlSpaceSearch   ctermfg=142    ctermbg=NONE     cterm=NONE
-hi CtrlSpaceStatus   ctermfg=142    ctermbg=237      cterm=bold
+hi CtrlSpaceStatus   ctermfg=108    ctermbg=237      cterm=bold
 
 
 " ==> Tagbar

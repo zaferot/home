@@ -20,11 +20,11 @@ set -x FZF_DEFAULT_COMMAND 'ag -l -g ""'
 set -x SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # Set default $TERM when in tmux
-if test -n "$TMUX"
-  set -x TERM 'screen-256color-it'
+if test -z "$TMUX"
+  set -x TERM 'xterm-256color-it'
 end
 
 # Start detached TNUX session
-if not tmux has-session -t dev >/dev/null ^&1
-  tmux new-session -d -s dev
-end
+# if not tmux has-session -t dev >/dev/null ^&1
+#   tmux new-session -d -s dev
+# end
