@@ -57,6 +57,7 @@ TERM st
 TERM st-256color
 TERM xterm-termite
 TERM terminator
+TERM tmux-256color
 TERM vt100
 TERM xterm
 TERM xterm-16color

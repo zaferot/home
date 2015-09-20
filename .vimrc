@@ -155,7 +155,6 @@ set fileformats=unix,dos,mac "This gives the end-of-line (<EOL>)
 set ttyfast " indicate a fast terminal connection
 set tf " improve redrawing for newer computers
 set lazyredraw " turn on lazy redraw
-" set shell=/bin/sh
 set synmaxcol=500 " Do not highlight long lines
 set viminfo+=! " Use viminfo file
 
@@ -216,6 +215,7 @@ syntax on " Enable syntax
 
 set background=dark " Enable for dark terminals
 
+let g:gruvbox_italic = 1 " Enable italic font (it must go before a colorscheme)
 colorscheme gruvbox " Set color scheme
 
 set t_Co=256 " Use 256 colors
