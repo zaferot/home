@@ -1,4 +1,5 @@
 package grc
-package thefuck
 theme cbjohnson
+theme clearance
 theme default
+theme zish
