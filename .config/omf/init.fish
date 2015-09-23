@@ -24,7 +24,5 @@ if test -z "$TMUX"
   set -x TERM 'xterm-256color'
 end
 
-# Start detached TNUX session
-# if not tmux has-session -t dev >/dev/null ^&1
-#   tmux new-session -d -s dev
-# end
+# Set default editor
+set -x EDITOR vim
