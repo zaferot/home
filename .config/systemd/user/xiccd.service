@@ -1,0 +1,10 @@
+[Unit]
+Description=X color profile daemon
+
+[Service]
+ExecStart=/usr/bin/xiccd
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target
