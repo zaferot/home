@@ -32,14 +32,10 @@ cursor_shape = block
 
 [colors]
 # Base16 Atelier Dune
-# Scheme: Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune)
 
-#foreground      = #a6a28c
-#foreground_bold = #a6a28c
-foreground      = #b2b2b2
-foreground_bold = #dcdcdc
-cursor          = #a6a28c
-background      = #20201d
+foreground      = #dcdcdc
+foreground_bold = #ffffff
+background      = #282828
 
 # 16 color space
 color0  = #20201d
@@ -67,7 +63,7 @@ color19 = #6e6b5e
 color20 = #999580
 color21 = #e8e4cf
 
-# grubvbox:
+# grubvbox part
 color24         = #076678
 color66         = #427b58
 color88         = #9d0006
@@ -98,7 +94,6 @@ color245        = #928374
 color246        = #a89984
 color248        = #bdae93
 color250        = #d5c4a1
-
 
 [hints]
 # font = Monospace 12
