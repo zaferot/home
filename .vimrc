@@ -50,18 +50,18 @@ Plug 'chrisbra/NrrwRgn' " Narrow Region
 Plug 'drmikehenry/vim-fixkey' " non-ASCII keys of a terminal emulator
 Plug 'dockyard/vim-easydir' " simple way to create, edit and save files and parent directories
 Plug 'godlygeek/tabular' " Text filtering and alignment
-Plug 'luochen1990/indent-detector.vim' " indent detect
 Plug 'powerman/vim-plugin-viewdoc' " Flexible viewer for any documentation
 
 " Workflow
 Plug 'szw/vim-ctrlspace' " Vim Workspace Controller
 Plug 'dyng/ctrlsf.vim' " ack/ag powered code search and view tool
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " command-line fuzzy finder written
-Plug 'justinmk/vim-gtfo' " Go to Terminal or File manager
+Plug 'dietsche/vim-lastplace' " ntelligently reopen files where you left off
 
 " Search & Navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " A tree explorer plugin for vim
 Plug 'justinmk/vim-sneak' " Additional motions
+Plug 'rhysd/clever-f.vim' " Extended f, F, t and T key mapping
 Plug 'rking/ag.vim' " Search utility
 Plug 'junegunn/vim-oblique' " Improved /-search
 
@@ -72,16 +72,16 @@ Plug 'Valloric/MatchTagAlways' " Highlighting the enclosing html/xml tags
 Plug 'itchyny/vim-highlighturl' " URL highlight everywhere
 Plug 'Yggdroot/indentLine' " Display the indention levels
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' } " :substitute preview
-Plug 'KabbAmine/vCoolor.vim' " Color selector/picker
 Plug 'ryanoasis/vim-webdevicons' " filetype font icons (glyphs) to vim for NERDTree and vim-airline plugins
 
 " Coding helpers
-Plug 'ludovicchabant/vim-gutentags' " Automated tag file generation
 Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' } " Auto completion framework
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' } " Tern-based JavaScript editing support
+Plug 'ludovicchabant/vim-gutentags' " Automated tag file generation
 Plug 'SirVer/ultisnips' " Snippet engine
 Plug 'honza/vim-snippets' " Snippets
 Plug 'Raimondi/delimitMate' " Automatic closing of quotes
-Plug 'scrooloose/syntastic' " Syntax checking
+Plug 'scrooloose/syntastic', { 'for': ['css', 'scss', 'javascript', 'haml'] } " Syntax checking
 Plug 'majutsushi/tagbar' " It displays tags in a window
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' } " Undo tree
 Plug 'tomtom/tcomment_vim' " Provides file-type sensible comments for Vim
@@ -103,18 +103,6 @@ Plug 'gregsexton/gitv' " An extension of the 'fugitive' Plug .
 Plug 'airblade/vim-gitgutter' " Git diff sign
 " Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
 
-" Tmux support
-Plug 'tmux-plugins/vim-tmux-focus-events' " Enables FocusGained and FocusLost
-Plug 'wellle/tmux-complete.vim' " Completion of words in adjacent tmux panes
-Plug 'christoomey/vim-tmux-navigator' " Navigation between tmux panes and vim splits
-Plug 'edkolev/tmuxline.vim' " tmux statusline generator with airline integration
-Plug 'tmux-plugins/vim-tmux' " Syntax highlighting for tmux.conf
-
-" Perl support
-Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' } " Perl
-Plug 'c9s/perlomni.vim' " perl omnicompletion
-Plug 'c9s/cpan.vim' " Integration with CPAN
-
 
 " Text objects
 Plug 'kana/vim-textobj-entire' " (ae, ie) Text objects for entire buffer
@@ -131,14 +119,36 @@ Plug 'saaguero/vim-textobj-pastedtext' " (*gb) Text object for last pasted text
 Plug 'junegunn/vim-after-object' " Targeat text *after* the designated characters
 Plug 'wellle/targets.vim' " Provides additional text objects and expands existing
 
+" File types
+Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'html'] }
+Plug 'gavocanov/vim-js-indent', { 'for': ['javascript', 'html'] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'tpope/vim-haml', { 'for': ['haml']   }
+Plug 'wavded/vim-stylus', { 'for': ['stylus'] }
+Plug 'groenewege/vim-less', { 'for': ['less']   }
+Plug 'digitaltoad/vim-jade', { 'for': ['jade']   }
+Plug 'slim-template/vim-slim', { 'for': ['slim']   }
+Plug 'othree/html5.vim', { 'for': ['html']   }
+Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss']   }
+Plug 'hail2u/vim-css3-syntax', { 'for': ['html','css'] }
+Plug 'elzr/vim-json', { 'for': ['json', 'javascript', 'html']   }
+Plug 'mattn/emmet-vim', { 'for': ['html','xhtml','css','sass','scss','xml'] }
+Plug 'tpope/vim-git'
+Plug 'kurayama/systemd-vim-syntax', { 'for': 'systemd' }
+
+" Tmux support
+Plug 'tmux-plugins/vim-tmux-focus-events' " Enables FocusGained and FocusLost
+Plug 'wellle/tmux-complete.vim' " Completion of words in adjacent tmux panes
+Plug 'christoomey/vim-tmux-navigator' " Navigation between tmux panes and vim splits
+Plug 'edkolev/tmuxline.vim' " tmux statusline generator with airline integration
+Plug 'tmux-plugins/vim-tmux' " Syntax highlighting for tmux.conf
+
 " Utilities and dependencies
 Plug 'kana/vim-textobj-user' " Create custom text objects
 Plug 'tek/vim-fieldtrip' " simple sideways submode
 Plug 'kana/vim-submode' " Allows to create custom submodes
 Plug 'junegunn/vim-pseudocl' " Pseudo-command-line (dependensy for oblique)
-
-" File types
-Plug 'sheerun/vim-polyglot' " A collection of language packs for Vim
 
 call plug#end()
 
@@ -149,6 +159,7 @@ call plug#end()
 " Set UTF-8 everywhere
 set encoding=utf-8
 set termencoding=utf-8
+scriptencoding utf-8
 set fileformats=unix,dos,mac "This gives the end-of-line (<EOL>)
 
 " small tweaks
@@ -281,8 +292,6 @@ let g:xml_syntax_folding=1 " enable xml folding
 " Indentation & Spaces & Tabs & Formatting {{{
 set autoindent " Preserve current indent on new lines
 set copyindent " copy the previous indentation on autoindenting
-set cindent " smart indenting for c-like code
-set cino=b1,g0,N-s,t0,(0,W4 " see :h cinoptions-values
 set breakindent " Wrapped lines will be visually indented
 set expandtab " Convert all tabs typed to spaces
 set smarttab " smart tab handling for indenting
@@ -322,7 +331,7 @@ set undolevels=1000 " Use many levels of undo
 " Key mappings {{{
 
 " Set leader
-let mapleader = " "
+let g:mapleader = " "
 
 " jk | Escaping!
 inoremap jk <Esc>
@@ -405,9 +414,6 @@ augroup vimrc
   autocmd vimrc InsertEnter * set nocursorline
   autocmd vimrc InsertLeave * set cursorline
 
-  " Remove trailing whitespaces when saving
-  autocmd vimrc BufWritePre * :%s/\s\+$//e
-
   " Close vim if the only window left open is a NERDTree
   autocmd vimrc BufEnter *
         \ if (winnr("$") == 1 && exists("b:NERDTreeType") &&
@@ -421,17 +427,37 @@ augroup END
 
 "}}}
 
-" Functions {{{
+" File type settings {{{
+augroup filetype_settings
+  autocmd!
 
-" When editing a file, always jump to the last known cursor position.
-function! SetCursorPosition()
-  if &filetype !~ 'svn\|commit\c'
-    if line("'\"") > 0 && line("'\"") <= line("$") |
-      execute 'normal! g`"zvzz' |
-    endif
-  end
-endfunction
-autocmd BufReadPost * call SetCursorPosition()
+  " Perl
+  autocmd FileType perl
+        \   setlocal tabstop=4
+        \ | setlocal softtabstop=4
+        \ | setlocal shiftwidth=4
+        \ | setlocal smarttab
+
+  " Python
+  autocmd FileType python
+        \   setlocal softtabstop=8
+        \ | setlocal shiftwidth=8
+
+  " JavaScript
+  autocmd FileType javascript
+        \   setlocal tabstop=4
+        \ | setlocal softtabstop=4
+        \ | setlocal shiftwidth=4
+
+  " CSS
+  autocmd FileType css
+        \   setlocal softtabstop=2
+        \ | setlocal shiftwidth=2
+
+augroup END
+
+"}}}
+" Functions {{{
 
 " Combine multiple and vim-swoop, to make it compatible (no context move while
 " multiple cursor)
@@ -557,15 +583,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_enable_signs = 1
-let g:syntastic_error_symbol = '✗'
+let g:syntastic_error_symbol = '✖'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '♫'
 let g:syntastic_style_error_symbol = '♪'
 highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['flake8', 'pylint']
-let g:syntastic_perl_checkers = ['perl', 'perlcritic']
-let g:syntastic_enable_perl_checker = 1
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_css_checkers = ['csslint']
+let g:syntastic_html_checkers = ['tidy']
 
 let g:syntastic_filetype_map = {
       \ 'ansible': 'yaml',
@@ -584,22 +611,6 @@ let g:ycm_complete_in_comments = 1 " Suggest completion in comments
 let g:ycm_complete_in_strings = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_cache_omnifunc = 0
-let g:ycm_filetype_specific_completion_to_disable = {
-      \   'gitcommit': 1,
-      \ }
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'qf' : 1,
-      \ 'notes' : 1,
-      \ 'markdown' : 1,
-      \ 'unite' : 1,
-      \ 'text' : 1,
-      \ 'vimwiki' : 1,
-      \ 'pandoc' : 1,
-      \ 'infolog' : 1,
-      \ 'mail' : 1,
-      \ 'help': 1
-      \}
 
 
 " ==> UltiSnips
@@ -727,22 +738,6 @@ xmap <CR>   <Plug>SneakNext
 nmap <BS>   <Plug>SneakPrevious
 xmap <BS>   <Plug>SneakPrevious
 
-" replace 'f' with 1-char Sneak
-nmap f <Plug>Sneak_f
-nmap F <Plug>Sneak_F
-xmap f <Plug>Sneak_f
-xmap F <Plug>Sneak_F
-" omap f <Plug>Sneak_f
-" omap F <Plug>Sneak_F
-
-" replace 't' with 1-char Sneak
-nmap t <Plug>Sneak_t
-nmap T <Plug>Sneak_T
-xmap t <Plug>Sneak_t
-xmap T <Plug>Sneak_T
-" omap t <Plug>Sneak_t
-" omap T <Plug>Sneak_T
-
 
 " ==> Tmux-complete
 let g:tmuxcomplete#trigger = 'omnifunc'
@@ -786,23 +781,9 @@ let g:quickrun_config.perl = {
         \ 'runner': 'shell'
         \ }
 
+
 " Autoformat
-let g:formatdef_perl = '"perltidy -q"'
-let g:formatters_perl = ['perl']
 
 "}}}
 
-" File type settings {{{
-augroup filetype_settings
-  autocmd!
-
-  " Perl
-  autocmd FileType perl
-        \   setl softtabstop=4
-        \ | setl shiftwidth=4
-        \ | setl smarttab
-
-augroup END
-
-"}}}
 

@@ -1,4 +1,6 @@
+package fzf
 package grc
+package set_color
 theme cbjohnson
 theme clearance
 theme default
