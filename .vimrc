@@ -41,20 +41,16 @@ Plug 'talek/obvious-resize' " Resizing Vim windows
 Plug 'terryma/vim-multiple-cursors' " Multiple cursors
 Plug 'junegunn/vim-peekaboo' " Allows to see the contents of the registers.
 Plug 'ConradIrwin/vim-bracketed-paste' " Handles bracketed-paste-mode
-Plug 'vim-scripts/visualrepeat' " Repeat command extended to visual mode
 Plug 'matchit.zip' " Extends the use of %
 Plug 'matze/vim-move' " Moving/swapping lines
 Plug 'wesQ3/vim-windowswap' " Swap windows/splits
-Plug 'terryma/vim-expand-region' " Enchanted visual selection
 Plug 'chrisbra/NrrwRgn' " Narrow Region
 Plug 'drmikehenry/vim-fixkey' " non-ASCII keys of a terminal emulator
-Plug 'dockyard/vim-easydir' " simple way to create, edit and save files and parent directories
 Plug 'godlygeek/tabular' " Text filtering and alignment
 Plug 'powerman/vim-plugin-viewdoc' " Flexible viewer for any documentation
 
 " Workflow
 Plug 'szw/vim-ctrlspace' " Vim Workspace Controller
-Plug 'dyng/ctrlsf.vim' " ack/ag powered code search and view tool
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " command-line fuzzy finder written
 Plug 'dietsche/vim-lastplace' " ntelligently reopen files where you left off
 
@@ -62,17 +58,17 @@ Plug 'dietsche/vim-lastplace' " ntelligently reopen files where you left off
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " A tree explorer plugin for vim
 Plug 'justinmk/vim-sneak' " Additional motions
 Plug 'rhysd/clever-f.vim' " Extended f, F, t and T key mapping
-Plug 'rking/ag.vim' " Search utility
+Plug 'dyng/ctrlsf.vim' " ack/ag powered code search and view tool
 Plug 'junegunn/vim-oblique' " Improved /-search
 
 " UI
 Plug 'bling/vim-airline' " Status line
 Plug 'junegunn/rainbow_parentheses.vim', { 'on': 'RainbowParentheses' } " Rainbow parentheses
-Plug 'Valloric/MatchTagAlways' " Highlighting the enclosing html/xml tags
+Plug 'Valloric/MatchTagAlways', { 'for': ['html','xhtml','css','sass','scss','xml'] } " Highlighting the enclosing html/xml tags
 Plug 'itchyny/vim-highlighturl' " URL highlight everywhere
 Plug 'Yggdroot/indentLine' " Display the indention levels
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' } " :substitute preview
-Plug 'ryanoasis/vim-webdevicons' " filetype font icons (glyphs) to vim for NERDTree and vim-airline plugins
+" Plug 'ryanoasis/vim-webdevicons' " filetype font icons (glyphs) to vim for NERDTree and vim-airline plugins
 
 " Coding helpers
 Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' } " Auto completion framework
@@ -99,9 +95,10 @@ Plug 'chriskempson/base16-vim' " Colorscheme Base 16
 
 " Git support
 Plug 'tpope/vim-fugitive' " Git wrapper
+Plug 'tpope/vim-git'
 Plug 'gregsexton/gitv' " An extension of the 'fugitive' Plug .
 Plug 'airblade/vim-gitgutter' " Git diff sign
-" Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
+Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
 
 
 " Text objects
@@ -134,7 +131,6 @@ Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss']   }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['html','css'] }
 Plug 'elzr/vim-json', { 'for': ['json', 'javascript', 'html']   }
 Plug 'mattn/emmet-vim', { 'for': ['html','xhtml','css','sass','scss','xml'] }
-Plug 'tpope/vim-git'
 Plug 'kurayama/systemd-vim-syntax', { 'for': 'systemd' }
 
 " Tmux support
@@ -146,7 +142,6 @@ Plug 'tmux-plugins/vim-tmux' " Syntax highlighting for tmux.conf
 
 " Utilities and dependencies
 Plug 'kana/vim-textobj-user' " Create custom text objects
-Plug 'tek/vim-fieldtrip' " simple sideways submode
 Plug 'kana/vim-submode' " Allows to create custom submodes
 Plug 'junegunn/vim-pseudocl' " Pseudo-command-line (dependensy for oblique)
 
@@ -184,18 +179,7 @@ set path+=/usr/lib/gcc/**/include
 set path+=** " Also search CWD
 
 if has('unnamedplus')
-  " By default, Vim will not use the system clipboard when yanking/pasting to
-  " the default register. This option makes Vim use the system default
-  " clipboard.
-  " Note that on X11, there are _two_ system clipboards: the "standard" one, and
-  " the selection/mouse-middle-click one. Vii sees the standard one as register
-  " '+' (and this option makes Vim use it by default) and the selection one as
-  " '*'.
-  " See :h 'clipboard' for details.
-  set clipboard=unnamedplus,unnamed
-else
-  " Vim now also uses the selection system clipboard for default yank/paste.
-  set clipboard+=unnamed
+  set clipboard=unnamed,unnamedplus
 endif
 
 set iskeyword+=_,$,@,%,# " None of these should be word dividers
@@ -301,7 +285,7 @@ set shiftround " Indent/outdent to nearest tabstop
 set formatoptions=croqnj " Optimize format options
 set nojoinspaces " Prevents inserting two spaces after punctuation on a join (J)
 set nowrap " Disable word wrapping
-set textwidth=80 " Set text width
+set textwidth=79 " Set text width
 
 "}}}
 
@@ -459,20 +443,6 @@ augroup END
 "}}}
 " Functions {{{
 
-" Combine multiple and vim-swoop, to make it compatible (no context move while
-" multiple cursor)
-function! Multiple_cursors_before()
-  if exists('*SwoopFreezeContext') != 0
-    call SwoopFreezeContext()
-  endif
-endfunction
-
-function! Multiple_cursors_after()
-  if exists('*SwoopUnFreezeContext') != 0
-    call SwoopUnFreezeContext()
-  endif
-endfunction
-
 " FZF function:
 " Search lines in all open vim buffers
 function! s:line_handler(l)
@@ -590,9 +560,10 @@ let g:syntastic_style_error_symbol = '♪'
 highlight link SyntasticStyleErrorSign Todo
 
 let g:syntastic_python_checkers = ['flake8', 'pylint']
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_html_checkers = ['tidy']
+let g:syntastic_html_checkers = ['tidy' , 'jshint']
 
 let g:syntastic_filetype_map = {
       \ 'ansible': 'yaml',
@@ -623,7 +594,6 @@ let g:UltiSnipsEditSplit='vsplit'
 
 
 " ==> Airline
-let g:airline#extensions#tabline#enabled = 1 " Enable tabline
 let g:airline#extensions#tmuxline#enabled = 1 " Enable Tmuxline
 let g:airline_powerline_fonts = 1 " Enable powerline fonts
 let g:airline_theme = 'tomorrow' " Set Airline theme
@@ -640,7 +610,7 @@ let g:indentLine_char = '¦'
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 autocmd vimrc FileType vim,html,xml let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
-autocmd vimrc FileType c let b:delimitMate_eol_marker = ";"
+autocmd vimrc FileType c, javascript let b:delimitMate_eol_marker = ";"
 autocmd vimrc FileType python let b:delimitMate_expand_inside_quotes = 1
 autocmd vimrc FileType python let b:delimitMate_nesting_quotes = ['"']
 
@@ -681,13 +651,6 @@ let g:ctrlsf_mapping = {
 let g:highlighturl_ctermfg=109
 
 
-" ==> Sideways
-let g:fieldtrip_start_map ='<Leader>sw'
-let g:submode_always_show_submode = 1
-let g:submode_timeout = 5000
-let g:submode_timeoutlen = 5000
-
-
 " ==> SplitJoin
 let g:splitjoin_align = 1
 
@@ -714,6 +677,11 @@ let g:inline_edit_patterns   = [
       \     'end':               '</script>',
       \   }
       \ ]
+
+
+" ==> Sideways
+nnoremap <Leader>h :SidewaysLeft<CR>
+nnoremap <Leader>l :SidewaysRight<CR>
 
 
 " ==> Autoformat
@@ -775,6 +743,7 @@ nnoremap <silent> <Leader>t : FZFTag<cr>
 " Search lines in all open vim buffers
 nnoremap <silent> <Leader>f : FZFLines<cr>
 
+
 " ==> Quickrun
 let g:quickrun_config = {}
 let g:quickrun_config.perl = {
@@ -782,7 +751,19 @@ let g:quickrun_config.perl = {
         \ }
 
 
-" Autoformat
+" ==> Tern
+let g:tern_show_signature_in_pum = 1
+nnoremap gd :TernDef<CR>
+nnoremap <F8> :TernRename<CR>
+nnoremap <F7> :TernType<CR>
+
+
+" ==> Vim-JSON
+let g:vim_json_syntax_conceal = 0
+
+
+" ==> Emmet
+let g:user_emmet_leader_key = '<C-z>'
 
 "}}}
 
