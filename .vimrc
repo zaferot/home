@@ -68,7 +68,7 @@ Plug 'Valloric/MatchTagAlways', { 'for': ['html','xhtml','css','sass','scss','xm
 Plug 'itchyny/vim-highlighturl' " URL highlight everywhere
 Plug 'Yggdroot/indentLine' " Display the indention levels
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' } " :substitute preview
-" Plug 'ryanoasis/vim-webdevicons' " filetype font icons (glyphs) to vim for NERDTree and vim-airline plugins
+Plug 'ryanoasis/vim-webdevicons' " filetype font icons (glyphs) to vim for NERDTree and vim-airline plugins
 
 " Coding helpers
 Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' } " Auto completion framework
@@ -641,6 +641,7 @@ imap     <C-F>t <Esc>:CtrlSFToggle<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 nnoremap <C-F>o :CtrlSFOpen<CR>
 
+let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_mapping = {
     \ "next": "n",
     \ "prev": "N",
