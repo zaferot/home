@@ -50,11 +50,11 @@ URxvt.internalBorder: 0
 URxvt.externalBorder: 0
 
 ! Perl extensions
-URxvt.perl-ext-common:          default,clipboard
+!URxvt.perl-ext-common:          default,clipboard
 ! clipboard
-URxvt.keysym.C-C:               perl:clipboard:copy
-URxvt.keysym.C-V:               perl:clipboard:paste
-URxvt.keysym.M-v:               perl:clipboard:paste_escaped
+!URxvt.keysym.C-C:               perl:clipboard:copy
+!URxvt.keysym.C-V:               perl:clipboard:paste
+!URxvt.keysym.M-v:               perl:clipboard:paste_escaped
 ! url-select
 ! URxvt.url-select.underline:     true
 ! URxvt.url-select.launcher:      /usr/bin/xdg-open

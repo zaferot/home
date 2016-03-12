@@ -32,8 +32,7 @@ cursor_shape = block
 
 [colors]
 # Base16 Atelier Dune
-
-foreground      = #dcdcdc
+foreground      = #ebdbb2
 foreground_bold = #ffffff
 background      = #282828
 

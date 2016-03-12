@@ -34,7 +34,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-repeat' " Enable repeating supported plugin maps with
 Plug 'tpope/vim-speeddating' " Supporting dates
 Plug 'tpope/vim-eunuch' " Helpers for UNIX
-Plug 'tpope/vim-unimpaired' " Pairs of handy bracket mappings
+" Plug 'tpope/vim-unimpaired' " Pairs of handy bracket mappings
 Plug 'tpope/vim-surround' " quoting/parenthesizing made simple
 Plug 'tpope/vim-rsi' " Readline style insertion
 Plug 'talek/obvious-resize' " Resizing Vim windows
@@ -51,28 +51,31 @@ Plug 'powerman/vim-plugin-viewdoc' " Flexible viewer for any documentation
 
 " Workflow
 Plug 'szw/vim-ctrlspace' " Vim Workspace Controller
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " command-line fuzzy finder written
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'} " A command-line fuzzy finder
+Plug 'junegunn/fzf.vim' " fzf extensions for Vim
 Plug 'dietsche/vim-lastplace' " ntelligently reopen files where you left off
 
 " Search & Navigation
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " A tree explorer plugin for vim
 Plug 'justinmk/vim-sneak' " Additional motions
+Plug 'justinmk/vim-gtfo' " Go to Terminal or File manager
 Plug 'rhysd/clever-f.vim' " Extended f, F, t and T key mapping
 Plug 'dyng/ctrlsf.vim' " ack/ag powered code search and view tool
 Plug 'junegunn/vim-oblique' " Improved /-search
 
 " UI
 Plug 'bling/vim-airline' " Status line
+Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'junegunn/rainbow_parentheses.vim', { 'on': 'RainbowParentheses' } " Rainbow parentheses
 Plug 'Valloric/MatchTagAlways', { 'for': ['html','xhtml','css','sass','scss','xml'] } " Highlighting the enclosing html/xml tags
-Plug 'itchyny/vim-highlighturl' " URL highlight everywhere
+Plug 'justinmk/vim-matchparenalways' " Scope highlighting
+Plug 'itchyny/vim-highlighturl', { 'for': ['html', 'xml'] } " URL highlight everywhere
 Plug 'Yggdroot/indentLine' " Display the indention levels
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' } " :substitute preview
 Plug 'ryanoasis/vim-webdevicons' " filetype font icons (glyphs) to vim for NERDTree and vim-airline plugins
 
 " Coding helpers
-Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py' } " Auto completion framework
-Plug 'marijnh/tern_for_vim', { 'do': 'npm install', 'for': 'javascript' } " Tern-based JavaScript editing support
+Plug 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py --tern-completer' } " Auto completion framework
 Plug 'ludovicchabant/vim-gutentags' " Automated tag file generation
 Plug 'SirVer/ultisnips' " Snippet engine
 Plug 'honza/vim-snippets' " Snippets
@@ -80,14 +83,13 @@ Plug 'Raimondi/delimitMate' " Automatic closing of quotes
 Plug 'scrooloose/syntastic', { 'for': ['css', 'scss', 'javascript', 'haml'] } " Syntax checking
 Plug 'majutsushi/tagbar' " It displays tags in a window
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' } " Undo tree
-Plug 'tomtom/tcomment_vim' " Provides file-type sensible comments for Vim
+Plug 'tpope/vim-commentary' " Commentary plugin
 Plug 'AndrewRadev/sideways.vim' " Move function arguments
 Plug 'AndrewRadev/splitjoin.vim' " Simplifies the transition between multiline and single-line code
-Plug 'AndrewRadev/inline_edit.vim' " Edit code that's embedded within other code
-Plug 'thinca/vim-quickrun' " Execute whole/part of editing file.
+Plug 'AndrewRadev/inline_edit.vim', { 'for': ['javascript'] } " Edit code that's embedded within other code
+Plug 'thinca/vim-quickrun', { 'for': ['perl', 'python'] } " Execute whole/part of editing file.
 Plug 'Chiel92/vim-autoformat' " Code formatting by integrating existing code formatters
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Alignment plugin
-
 
 " Color themes
 Plug 'morhetz/gruvbox' " Colorscheme gruvbox
@@ -96,23 +98,24 @@ Plug 'chriskempson/base16-vim' " Colorscheme Base 16
 " Git support
 Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'tpope/vim-git'
-Plug 'gregsexton/gitv' " An extension of the 'fugitive' Plug .
+Plug 'gregsexton/gitv' " An extension of the 'fugitive'
 Plug 'airblade/vim-gitgutter' " Git diff sign
-Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
+" Plug 'Xuyuanp/nerdtree-git-plugin' " A plugin of NERDTree showing git status
 
 
 " Text objects
 Plug 'kana/vim-textobj-entire' " (ae, ie) Text objects for entire buffer
 Plug 'kana/vim-textobj-line' " (al, il) Text objects for current line
 Plug 'kana/vim-textobj-indent' " (ai, ii, aI, iI) Text objects for indented blocks of lines
-Plug 'glts/vim-textobj-comment' " (ac, ic, aC) Text objects for comments
+" Plug 'glts/vim-textobj-comment' " (ac, ic, aC) Text objects for comments
 Plug 'kana/vim-textobj-function' " (af, if) Text objects for functions (C, Java, VimL)
-Plug 'thinca/vim-textobj-function-javascript' " Extends textobj-function
-Plug 'thinca/vim-textobj-function-perl' " Extends textobj-function
-Plug 'lucapette/vim-textobj-underscore' " (a_, i_) Underscore text-object
-Plug 'whatyouhide/vim-textobj-xmlattr' " (ax, ix) Text object for XML/HTML attributes
+Plug 'thinca/vim-textobj-function-javascript', { 'for': 'javascript' } " Extends textobj-function
+Plug 'thinca/vim-textobj-function-perl', { 'for': 'perl' } " Extends textobj-function
+Plug 'whatyouhide/vim-textobj-xmlattr', { 'for': ['html', 'xml'] } " (ax, ix) Text object for XML/HTML attributes
+" Plug 'jasonlong/vim-textobj-css' " (ic, ac) Text objects for CSS, Sass, etc
+Plug 'Julian/vim-textobj-variable-segment' " (iv, av) for variable segments
+Plug 'Chun-Yang/vim-textobj-chunk' " (ac, ic) Represents the chunk object
 Plug 'jceb/vim-textobj-uri' " (au, iu) Text objects for dealing with URIs
-Plug 'saaguero/vim-textobj-pastedtext' " (*gb) Text object for last pasted text
 Plug 'junegunn/vim-after-object' " Targeat text *after* the designated characters
 Plug 'wellle/targets.vim' " Provides additional text objects and expands existing
 
@@ -163,6 +166,7 @@ set tf " improve redrawing for newer computers
 set lazyredraw " turn on lazy redraw
 set synmaxcol=500 " Do not highlight long lines
 set viminfo+=! " Use viminfo file
+set sh=/bin/bash " Use bash as a default shell
 
 " Lower the delay of escaping out of other modes
 set timeoutlen=500
@@ -229,6 +233,7 @@ set number " Show numbers
 set relativenumber " Show relative line numbers
 set cursorline " Highlights the current line
 set colorcolumn=+1 " this makes the color after the textwidth column highlighted
+set showtabline=0
 
 set completeopt=menu,menuone,longest " Auto complete options
 set wildmenu " Completion in vim command mode
@@ -360,6 +365,10 @@ vnoremap ; :
 " Make gt jump on tags
 noremap gt <C-]>
 
+" Add blank lines
+nnoremap <CR> o<Esc>
+nnoremap <Leader><CR> O<Esc>
+
 "}}}
 
 " Abbreviations {{{
@@ -390,7 +399,7 @@ augroup vimrc
 
   " Automatically delete trailing DOS-returns and whitespace on file open and
   " write.
-  autocmd vimrc BufRead,BufWritePre,FileWritePre * silent! %s/[\r \t]\+$//
+  " autocmd vimrc BufRead,BufWritePre,FileWritePre * silent! %s/[\r \t]\+$//
 
   " Only show cursorline in the current window and in normal mode.
   autocmd vimrc WinLeave * set nocursorline
@@ -443,43 +452,6 @@ augroup END
 "}}}
 " Functions {{{
 
-" FZF function:
-" Search lines in all open vim buffers
-function! s:line_handler(l)
-  let keys = split(a:l, ':\t')
-  exec 'buf ' . keys[0]
-  exec keys[1]
-  normal! ^zz
-endfunction
-
-function! s:buffer_lines()
-  let res = []
-  for b in filter(range(1, bufnr('$')), 'buflisted(v:val)')
-    call extend(res, map(getbufline(b,0,"$"), 'b . ":\t" . (v:key + 1) . ":\t" . v:val '))
-  endfor
-  return res
-endfunction
-
-command! FZFLines call fzf#run({
-\   'source':  <sid>buffer_lines(),
-\   'sink':    function('<sid>line_handler'),
-\   'options': '--extended --nth=3..',
-\   'down':    '40%'
-\})
-
-" Jump to tags
-command! FZFTag if !empty(tagfiles()) | call fzf#run({
-\   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
-\   'sink':   'tag',
-\ }) | else | echo 'No tags' | endif
-
-" MRU search
-command! FZFMru call fzf#run({
-            \'source': v:oldfiles,
-            \'sink' : 'e ',
-            \'options' : '-m',
-            \'down':    15
-            \})
 
 "}}}
 
@@ -530,14 +502,15 @@ if executable("ag")
   let g:CtrlSpaceGlobCommand = 'ag -l --nocolor -g ""'
 endif
 
-let g:CtrlSpaceSaveWorkspaceOnExit = 1
 let g:CtrlSpaceLoadLastWorkspaceOnStart = 1
 let g:CtrlSpaceSaveWorkspaceOnSwitch = 1
+let g:CtrlSpaceSaveWorkspaceOnExit = 1
+let g:CtrlSpaceSearchTiming = 100
 
 hi CtrlSpaceSelected ctermfg=NONE   ctermbg=239     cterm=NONE
 hi CtrlSpaceNormal   ctermfg=245    ctermbg=NONE    cterm=NONE
 hi CtrlSpaceSearch   ctermfg=142    ctermbg=NONE     cterm=NONE
-hi CtrlSpaceStatus   ctermfg=108    ctermbg=237      cterm=bold
+hi CtrlSpaceStatus   ctermfg=142    ctermbg=237      cterm=bold
 
 
 " ==> Tagbar
@@ -585,7 +558,7 @@ let g:ycm_cache_omnifunc = 0
 
 
 " ==> UltiSnips
-" remap Ultisnips for compatibility for YCM
+" Remap UltiSnips for compatibility for YCM
 let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
@@ -598,8 +571,6 @@ let g:airline#extensions#tmuxline#enabled = 1 " Enable Tmuxline
 let g:airline_powerline_fonts = 1 " Enable powerline fonts
 let g:airline_theme = 'tomorrow' " Set Airline theme
 let g:airline_exclude_preview = 1 " Additional support for CtrlSpace
-let g:airline#extensions#tabline#fnamemod = ':t' " Display only file name
-let g:airline#extensions#tabline#show_close_button = 0 " No show close button
 
 
 " ==> indentLine
@@ -637,9 +608,9 @@ vmap     <C-F>f <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
 nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
-imap     <C-F>t <Esc>:CtrlSFToggle<CR>
-nnoremap <C-F>t :CtrlSFToggle<CR>
 nnoremap <C-F>o :CtrlSFOpen<CR>
+nnoremap <C-F>t :CtrlSFToggle<CR>
+inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_mapping = {
@@ -702,10 +673,10 @@ hi SneakPluginTarget ctermfg=red ctermbg=NONE cterm=bold,underline
 hi SneakStreakTarget ctermfg=red ctermbg=NONE cterm=bold,underline
 hi SneakStreakMask ctermfg=white ctermbg=NONE cterm=NONE
 
-nmap <CR>   <Plug>SneakNext
-xmap <CR>   <Plug>SneakNext
-nmap <BS>   <Plug>SneakPrevious
-xmap <BS>   <Plug>SneakPrevious
+" nmap <CR>   <Plug>SneakNext
+" xmap <CR>   <Plug>SneakNext
+" nmap <BS>   <Plug>SneakPrevious
+" xmap <BS>   <Plug>SneakPrevious
 
 
 " ==> Tmux-complete
@@ -725,24 +696,6 @@ let g:tmuxline_preset = {
 
 
 " ==> FZF
-" Choose color scheme
-nnoremap <silent> <Leader>c :call fzf#run({
-\   'source':
-\     map(split(globpath(&rtp, "colors/*.vim"), "\n"),
-\         "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')"),
-\   'sink':    'colo',
-\   'options': '+m',
-\   'right':    30
-\ })<CR>
-
-" MRU search
-nnoremap <silent> <Leader>m : FZFMru<cr>
-
-" Jump to tags
-nnoremap <silent> <Leader>t : FZFTag<cr>
-
-" Search lines in all open vim buffers
-nnoremap <silent> <Leader>f : FZFLines<cr>
 
 
 " ==> Quickrun
@@ -753,10 +706,6 @@ let g:quickrun_config.perl = {
 
 
 " ==> Tern
-let g:tern_show_signature_in_pum = 1
-nnoremap gd :TernDef<CR>
-nnoremap <F8> :TernRename<CR>
-nnoremap <F7> :TernType<CR>
 
 
 " ==> Vim-JSON
@@ -767,5 +716,3 @@ let g:vim_json_syntax_conceal = 0
 let g:user_emmet_leader_key = '<C-z>'
 
 "}}}
-
-
