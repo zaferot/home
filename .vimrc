@@ -68,8 +68,8 @@ Plug 'bling/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Airline themes
 Plug 'junegunn/rainbow_parentheses.vim', { 'on': 'RainbowParentheses' } " Rainbow parentheses
 Plug 'Valloric/MatchTagAlways', { 'for': ['html','xhtml','css','sass','scss','xml'] } " Highlighting the enclosing html/xml tags
-Plug 'justinmk/vim-matchparenalways' " Scope highlighting
-Plug 'itchyny/vim-highlighturl', { 'for': ['html', 'xml'] } " URL highlight everywhere
+" Plug 'justinmk/vim-matchparenalways' " Scope highlighting
+Plug 'itchyny/vim-highlighturl' " URL highlight everywhere
 Plug 'Yggdroot/indentLine' " Display the indention levels
 Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' } " :substitute preview
 Plug 'ryanoasis/vim-webdevicons' " filetype font icons (glyphs) to vim for NERDTree and vim-airline plugins
@@ -179,7 +179,6 @@ set hidden " Allows making buffers hidden even with unsaved changes
 set history=1000 " Increase the lines of history
 
 " Set path
-set path+=/usr/lib/gcc/**/include
 set path+=** " Also search CWD
 
 if has('unnamedplus')
